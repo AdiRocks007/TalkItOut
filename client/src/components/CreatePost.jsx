@@ -26,7 +26,7 @@ const CreatePost = () => {
         setIsCreatePostOpen(false);
         setUploadProgress();
     }
-
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
     const handlePostUplload = async (e) =>{
         e.preventDefault();
         
@@ -47,7 +47,7 @@ const CreatePost = () => {
 
             try{
                 const inputs = {userId: localStorage.getItem('userId'), userName: localStorage.getItem('username'), userPic: localStorage.getItem('profilePic'), fileType: postType, file: downloadURL, description: postDescription, location: postLocation, comments:{"New user": "This is my forst comment"}}
-                await axios.post('http://localhost:6001/createPost', inputs)
+                await axios.post(`${backendUrl}/createPost`, inputs)
                 .then( async (res)=>{
                 }).catch((err) =>{
                     console.log(err);

@@ -15,7 +15,7 @@ const Post = () => {
     const navigate = useNavigate();
 
     const {socket} = useContext(GeneralContext);
-
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
     const [posts, setPosts] = useState([]);
 
@@ -25,7 +25,7 @@ const Post = () => {
     
       const fetchPosts = async () => { 
         try {
-          const response = await axios.get('http://localhost:6001/fetchAllPosts');
+          const response = await axios.get(`${backendUrl}/fetchAllPosts`);
           const fetchedPosts = response.data;
           setPosts(fetchedPosts);
         } catch (error) {

@@ -4,7 +4,7 @@ import socketIoClient from 'socket.io-client';
 export const GeneralContext = createContext();
 
 
-const WS = 'http://localhost:6001';
+const WS = process.env.REACT_APP_BACKEND_URL || 'https://talkitout.onrender.com';
 
 const socket = socketIoClient(WS);
 

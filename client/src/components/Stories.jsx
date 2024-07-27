@@ -8,7 +8,7 @@ import {RxCross2} from 'react-icons/rx'
 const Stories = () => {
 
     const {socket, isCreateStoryOpen, setIsCreateStoryOpen} = useContext(GeneralContext);
-
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
     const [stories, setStories] = useState([])
     const [isStoryPlaying, setIsStoryPlaying] = useState(false);
 
@@ -25,7 +25,7 @@ const Stories = () => {
       const fetchStories = async () => { 
         try {
           
-            const response = await axios.get('http://localhost:6001/fetchAllStories');
+            const response = await axios.get(`${backendUrl}/fetchAllStories`);
             setStories(response.data)
             console.log(response.data[0])
         } catch (error) {

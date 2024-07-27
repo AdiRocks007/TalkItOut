@@ -1,11 +1,10 @@
 import React, { createContext, useState } from 'react';
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export const AuthenticationContext = createContext();
 
 const AuthenticationContextProvider = ({ children }) => {
-
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,10 +14,12 @@ const AuthenticationContextProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
+  const API_URL = process.env.REACT_APP_BACKEND_URL || 'https://talkitout.onrender.com'; // Use environment variable or fallback to deployed URL
+
   const login = async () => {
     try {
       const loginInputs = { email, password };
-      await axios.post('http://localhost:6001/login', loginInputs)
+      await axios.post(`${API_URL}/login`, loginInputs)
         .then(async (res) => {
           localStorage.setItem('userToken', res.data.token);
           localStorage.setItem('userId', res.data.user._id);
@@ -39,7 +40,7 @@ const AuthenticationContextProvider = ({ children }) => {
 
   const register = async () => {
     try {
-      await axios.post('http://localhost:6001/register', inputs)
+      await axios.post(`${API_URL}/register`, inputs)
         .then(async (res) => {
           localStorage.setItem('userToken', res.data.token);
           localStorage.setItem('userId', res.data.user._id);
