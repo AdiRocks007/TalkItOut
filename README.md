@@ -33,7 +33,7 @@ Welcome to TalkItOut! This social media platform allows users to create accounts
 ![Chat](chat.png)
 
 ### 4. Profile
-![User Profile](user_profile.png)
+![User Profile](profile.png)
 
 ## Try It Out
 
@@ -45,4 +45,4 @@ You can try out the TalkItOut application by visiting the deployment link below:
 
 Thank you for using TalkItOut! We hope you enjoy connecting with friends and sharing your moments.
 
-For any queries, please contact [Username](https://github.com/AdiRocks007).
+For any queries, please contact [AdiRocks007](https://github.com/AdiRocks007).
